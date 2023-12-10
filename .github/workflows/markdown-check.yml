@@ -30,6 +30,16 @@ jobs:
     - name: Run Markdown Check
       run: |
         for file in $(find . -name "*.md"); do
-          proselint "$file" || true
-          write-good "$file" || true
+          # Run proselint and write-good and capture the output
+          proselint_output=$(proselint "$file" || true)
+          write_good_output=$(write-good "$file" || true)
+
+          # Check if there are any issues and set outputs
+          if [ -n "$proselint_output" ]; then
+            echo "::warning file=$file,line=1::Proselint issues found: $proselint_output"
+          fi
+
+          if [ -n "$write_good_output" ]; then
+            echo "::warning file=$file,line=1::Write-good issues found: $write_good_output"
+          fi
         done
