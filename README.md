@@ -2,8 +2,8 @@
 
 ## Course Information
 - **Course Name:** The Missing Semester of Your CS Education
-- **Date:** 12072023
-- **Trainee:** Duc Viet HOANG
+- **Date:** 2023-12-10
+- **Trainee:** Duc-Viet Hoang
 
 
 ## Overview
