@@ -57,28 +57,28 @@ $ cat /tmp/missing/semester
 #!/bin/sh
 curl --head --silent https://missing.csail.mit.edu
 ```
-![Alt text](image-1.png)
+![Alt text](assets/image-1.png)
 
 ### Exercise 6:
 
-![Alt text](image-2.png)
+![Alt text](assets/image-2.png)
 
 Using `ls` with `-l` option will show the permission and owner of the file.
 
-![Alt text](image-3.png)
+![Alt text](assets/image-3.png)
 
 `/tmp/missing/semester` do not have "execute" permission.
 
 ### Exercise 7:
 Using `sh` to execute a file, such as `sh semester`, functions successfully even if the file itself, `./semester`, lacks execute permission. This is because `sh` is explicitly invoked to interpret the script, and it operates independently of the execute permission of `./semester`. When using `sh` to execute the file, you are essentially informing the shell that you are executing the `sh` interpreter with `./semester` as an argument, as opposed to directly executing `./semester`.
 
-![Alt text](image-5.png)
+![Alt text](assets/image-5.png)
 
 ### Exercise 8:
 ```
 $ man chmod
 ```
-![Alt text](image-6.png)
+![Alt text](assets/image-6.png)
 `chmod` is a command in Unix and Unix-like operating systems (including Linux) that is used to change the permissions of a file or directory. The name "`chmod`" stands for "change mode," and it allows you to modify the read, write, and execute permissions for the owner, group, and others.
 
 The basic syntax of the chmod command is as follows:
@@ -106,17 +106,17 @@ You can combine these values to specify multiple permissions. For example:
 $ chmod +x /tmp/missing/semester
 ```
 
-![Alt text](image-7.png)
+![Alt text](assets/image-7.png)
 
 The `#!/bin/sh` is called a shebang or hashbang. The purpose of the shebang is to specify the path to the interpreter that should be used to execute the script. It's can be vary depend on the scripting languauge or interpreter. For example: `#!/usr/bin/python3`
 
-![Alt text](image-8.png)
+![Alt text](assets/image-8.png)
 
 ### Exercise 10:
 ```
 $ /tmp/missing/semester | grep last-modified | sed 's/last-modified: //1' > /tmp/missing/last-modified.txt
 ```
-![Alt text](image-9.png)
+![Alt text](assets/image-9.png)
 
 Here:
 - `grep last-modified`: This part of the command uses grep to filter the lines containing "last-modified" from the HTTP response headers. It searches for lines that contain the string "last-modified."
@@ -132,7 +132,7 @@ $ cat /sys/class/power_supply/BAT0/capacity
 
 ### Exercise 1:
 
-![Alt text](image-10.png)
+![Alt text](assets/image-10.png)
 
 Here,
   - `-a` shows all files, including hidden files
@@ -153,7 +153,7 @@ polo () {
 }
 ```
 
-![Alt text](image-11.png)
+![Alt text](assets/image-11.png)
 
 ### Exercise 3:
 
@@ -195,7 +195,7 @@ cat "$error_log"
 echo "Total runs: $run_count"
 ```
 
-![Alt text](image-13.png)
+![Alt text](assets/image-13.png)
 
 ### Exercise 4:
 This command finds all files with a '.html' extension in the current directory and its subdirectories, then archives them into a compressed tarball named 'zipper.tar.gz'. The use of xargs -d '\n' ensures that filenames with spaces or special characters are handled correctly during the tar operation.
@@ -204,7 +204,7 @@ This command finds all files with a '.html' extension in the current directory a
 find . -name '*.html' | xargs -d '\n' tar -czvf zipper.tar.gz
 ```
 
-![Alt text](image-14.png)
+![Alt text](assets/image-14.png)
 
 ### Exercise 5:
 
@@ -229,7 +229,7 @@ Explanation of the command:
 ## Course overview + the shell
 
 # Exercise 1:
-![Alt text](image-17.png)
+![Alt text](assets/image-17.png)
 
 # Exercise 2:
 ```bash
@@ -250,18 +250,18 @@ pidwait() {
 }
 ```
 
-![Alt text](image-18.png)
+![Alt text](assets/image-18.png)
 
 # Exercise 3:
 
 # Exercise 4:
-![Alt text](image-19.png)
+![Alt text](assets/image-19.png)
 
 # Exercise 5:
 
 Run `history | awk '{$1="";print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10` to get your top 10 most used commands and consider writing shorter aliases for them. Note: this works for Bash; if you’re using ZSH, use history 1 instead of just history.
 
-![Alt text](image-31.png)
+![Alt text](assets/image-31.png)
 
 ---
 
@@ -284,7 +284,7 @@ Go to `~/.ssh/` and check if you have a pair of SSH keys there. If not, generate
 
 ---
 
-![Alt text](image-20.png)
+![Alt text](assets/image-20.png)
 
 # Exercise 8:
 
@@ -299,7 +299,7 @@ Edit .ssh/config to have an entry as follows
 
 ---
 
-![Alt text](image-21.png)
+![Alt text](assets/image-21.png)
 
 # Exercise 9:
 
@@ -307,7 +307,7 @@ Use ssh-copy-id vm to copy your ssh key to the server.
 
 ---
 
-![Alt text](image-22.png)
+![Alt text](assets/image-22.png)
 
 # Exercise 10:
 
@@ -319,9 +319,9 @@ ssh ducviet00-arch "python -m http.server 8888"
 
 or
 
-![Alt text](image-25.png)
+![Alt text](assets/image-25.png)
 
-![Alt text](image-24.png)
+![Alt text](assets/image-24.png)
 
 # Exercise 11:
 
@@ -383,7 +383,7 @@ stress -c 3
 
 This command runs the `stress` tool with the CPU stress test, requesting three workers. The CPU consumption can be monitored using `htop` or any other system monitoring tool (e.g `btop` - better alternative to htop).
 
-![Alt text](image-26.png)
+![Alt text](assets/image-26.png)
 
 
 ```
@@ -392,7 +392,7 @@ taskset --cpu-list 0,2 stress -c 3
 
 This command uses taskset to execute stress and binds it to CPUs 0 and 2 only. The stress command will be limited to using only these specified CPUs.
 
-![Alt text](image-27.png)
+![Alt text](assets/image-27.png)
 
 
 The command `stress -m 1 --vm-bytes 2G` is using the stress tool to simulate memory-intensive tasks. Let's break down the components of this command:
@@ -407,7 +407,7 @@ stress -m 1 --vm-bytes 2G
 
 This hereinbelow image shows that the `stress` program with `PID 1422277` using `1.5G` memory. The system monitoring is `btop`.
 
-![Alt text](image-28.png)
+![Alt text](assets/image-28.png)
 
 
 Create a control group (cgroup) named "moreh_memory_limit" using cgcreate:
@@ -428,7 +428,7 @@ sudo cgexec -g memory,cpuset:moreh_memory_limit stress -m 1 --vm-bytes 2G
 ```
 
 This hereinbelow image shows that the `stress` program with `PID 1444363` **only using `96M` memory (`<100M` according the max memory setted in cgroup)**.
-![Alt text](image-29.png)
+![Alt text](assets/image-29.png)
 
 Set the cpu ids for the cgroup using cgset:
 
@@ -442,5 +442,5 @@ This hereinbelow image shows that there are 4 `stress` programs with PID `144683
 sudo cgexec -g memory,cpuset:moreh_memory_limit stress -m 4 --vm-bytes 2G
 ```
 
-![Alt text](image-30.png)
+![Alt text](assets/image-30.png)
 
